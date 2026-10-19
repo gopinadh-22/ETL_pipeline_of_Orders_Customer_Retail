@@ -1,0 +1,38 @@
+[
+  {
+    "order_id": "ORD1001",
+    "customer": {
+      "id": "CUST01",
+      "name": "Arjun Kumar",
+      "email": "arjun.k@example.com",
+      "city": "Bengaluru"
+    },
+    "timestamp": "2026-10-18T10:15:30Z",
+    "amount_usd": 45.50,
+    "status": "COMPLETED"
+  },
+  {
+    "order_id": "ORD1002",
+    "customer": {
+      "id": "CUST02",
+      "name": "Priya Sharma",
+      "email": "priya.s@example.com",
+      "city": "Hyderabad"
+    },
+    "timestamp": "2026-10-18T10:17:00Z",
+    "amount_usd": -10.00,
+    "status": "COMPLETED"
+  },
+  {
+    "order_id": "ORD1001",
+    "customer": {
+      "id": "CUST01",
+      "name": "Arjun Kumar",
+      "email": "arjun.k@example.com",
+      "city": "Bengaluru"
+    },
+    "timestamp": "2026-10-18T10:15:30Z",
+    "amount_usd": 45.50,
+    "status": "COMPLETED"
+  }
+]
