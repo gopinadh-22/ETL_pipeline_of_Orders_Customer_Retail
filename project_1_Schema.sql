@@ -42,3 +42,5 @@ join DIM_CUSTOMERS dc on f.customer_id = dc.customer_id
 where order_status = 'completed'
 group by dc.city
 order by total_revenue desc;
+
+select sum(total_amount_inr) from fact_orders;
