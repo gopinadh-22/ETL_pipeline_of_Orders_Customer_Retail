@@ -1,3 +1,5 @@
+# This pipeline is trying to solve the problem and transforming the data which comes as duplication and invalid amount.
+# converting amount usd into inr. 
 import json
 with open('orders_batch_01.json','r') as file:
     data_file = json.load(file)
@@ -91,12 +93,12 @@ try:
     cursor = connection.cursor()
 
     customer_sql = """
-                    insert into dim_customers(customer_id,customer_name,customer_email,city)
-                    values (:1,:2,:3,:4)
+                insert into dim_customers(customer_id,customer_name,customer_email,city)
+                values (:1,:2,:3,:4)
     """
     order_sql = """
-                    insert into fact_orders(order_id,customer_id,order_timestamp,total_amount_inr,order_status)
-                    values (:1,:2,TO_TIMESTAMP_TZ(:3, 'YYYY-MM-DD"T"HH24:MI:SS"Z"'),:4,:5)
+                insert into fact_orders(order_id,customer_id,order_timestamp,total_amount_inr,order_status)
+                values (:1,:2,TO_TIMESTAMP_TZ(:3, 'YYYY-MM-DD"T"HH24:MI:SS"Z"'),:4,:5)
 """
     cursor.executemany(customer_sql,customer_items_data)
     cursor.executemany(order_sql,orders_items_data)
