@@ -44,3 +44,6 @@ group by dc.city
 order by total_revenue desc;
 
 select sum(total_amount_inr) from fact_orders;
+select avg(total_amount_inr) as average_amount from fact_orders;
+select min(total_amount_inr) as minimum_amount from fact_orders;
+select max(total_amount_inr) as maximum_amount from fact_orders;
