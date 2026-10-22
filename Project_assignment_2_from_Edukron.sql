@@ -175,6 +175,10 @@ begin
     MAKE_SALES(1002,101,2);
 end;
 /
+begin
+    MAKE_SALES(1003,104,5);
+end;
+/
 
 -- ===========================================================
 --  DELETE PRODUCT using procedure pl/sql
