@@ -195,3 +195,29 @@ begin
     DELETE_PRODUCT(106);
 end;
 /
+
+-- ===========================================================
+--  UPDATE STOCK using procedure pl/sql
+-- ===========================================================
+
+create or replace procedure update_stock (
+    p_id in number,
+    p_stock in number
+)
+as
+begin
+    update PRODUCT
+    set stock = p_stock
+    where product_id = p_id;
+    commit;
+    DBMS_OUTPUT.PUT_LINE('stock updated');
+end;
+/
+begin
+    UPDATE_STOCK(103,39);
+end;
+/
+
+select * from PRODUCT;
+
+select * from SALES;
