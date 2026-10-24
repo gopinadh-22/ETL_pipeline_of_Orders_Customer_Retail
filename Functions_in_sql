@@ -1,0 +1,56 @@
+SELECT
+    SYSDATE
+FROM
+    DUAL; -- this dual is used from free oracle sql ide for running and remaining all the tables which are used below are same as this.
+
+SELECT
+    *
+FROM
+    HR.DEPARTMENTS;
+
+select employee_id,email, hire_date, sysdate from hr.EMPLOYEES;
+
+SELECT systimestamp from dual;
+
+select days, systimestamp, add_months(systimestamp, 2)as after_two_months_for_current_month from dual
+where days = after_two_months_for_current_month - systimestamp;
+
+select systimestamp, last_day(systimestamp)as last_day_for_current_month from dual;
+
+select systimestamp, next_day(systimestamp, 5)as next_day_for_current_month from dual;
+
+select systimestamp, next_day(systimestamp, 'tuesday')as next_day_for_current_month from dual;
+
+select systimestamp, current(systimestamp)as current_day_for_current_month from dual;
+
+select add_months(HIRE_DATE,3),floor((add_months(HIRE_DATE,3) - HIRE_DATE)/30) as working_period_in_months,HIRE_DATE from hr.EMPLOYEES;
+
+select EXTRACT (year from sysdate) as year from dual;
+
+select e.*, extract(year from hire_date) as hire_year, count(hire_year) from hr.EMPLOYEES e
+order by HIRE_DATE;
+
+select * from hr.EMPLOYEES;
+
+SELECT JOB_ID, count(JOB_ID) as count_per_job_id
+from hr.EMPLOYEES
+group by JOB_ID;
+
+select e.*, count(JOB_ID)
+over (partition by JOB_ID) as employees_per_job
+from hr.EMPLOYEES e;
+
+
+select * from 
+(select e.*,
+row_number() over(partition by JOB_ID order by salary desc) as desc_salaries
+from hr.EMPLOYEES e) x
+where desc_salaries = 1;
+
+select e.*,
+row_number() over(partition by JOB_ID order by salary desc) as desc_salaries
+from hr.EMPLOYEES e;
+
+-- aggregate functions: sum,count,max,min,avg
+
+-- analytical functions: row_number(it will give the continuously wheather it is duplicate or not),rank(it will skip the value, if any duplicate is there),dense_rank(it will give the all the values continuoulsy if it is duplicate also),lead(depends on next values),lag(depends on previous values),first_value(it will take the very first value to the whole set of group),last_value(it will give the last_value for the rest of the set records).
