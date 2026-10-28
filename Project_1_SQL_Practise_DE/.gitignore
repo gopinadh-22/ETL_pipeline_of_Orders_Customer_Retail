@@ -1,0 +1,14 @@
+# Environment & Secrets
+.env
+*.log
+rejected_records.log
+
+# Virtual Environments & Build Files
+Lib/
+Scripts/
+etc/
+share/
+pyvenv.cfg
+.lock
+.venv/
+__pycache__/
